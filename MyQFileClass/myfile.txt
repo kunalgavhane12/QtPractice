@@ -1,0 +1,30 @@
+void MainWindow::on_pushButton_clicked()
+{
+    QFile file("D:/qt practice program/MyQFileClass/myfile.txt");
+    if(!file.open(QFile::WriteOnly | QFile::Text))
+    {
+        QMessageBox::information(this,"titile","File not Open..");
+    }
+
+    QTextStream out(&file);
+    QString text = ui->plainTextEdit->toPlainText();
+    out << text;
+
+    file.flush();
+    file.close();
+
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QFile file("D:/qt practice program/MyQFileClass/myfile.txt");
+    if(!file.open(QFile::ReadOnly | QFile::Text))
+    {
+        QMessageBox::information(this,"tile","File not open");
+    }
+    QTextStream in(&file);
+    QString text = in.readAll();
+    ui->plainTextEdit->setPlainText(text);
+    file.close();
+}
