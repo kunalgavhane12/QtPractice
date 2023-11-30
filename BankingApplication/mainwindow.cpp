@@ -54,8 +54,9 @@ bool MainWindow::isValidEmail(const QString& email)
     QString domainPart = email.mid(atIndex + 1);
     QStringList domainParts = domainPart.split('.');
 
-    if(domainPart.left(5).compare("gmail", Qt::CaseInsensitive) != 0 && domainPart.left(5).compare("ymail", Qt::CaseInsensitive) != 0
-            && domainPart.left(5).compare("yahoo", Qt::CaseInsensitive) != 0 && domainPart.left(10).compare("rediffmail", Qt::CaseInsensitive) != 0)
+    if(domainPart.left(5).compare("gmail", Qt::CaseInsensitive) != 0
+            && domainPart.left(5).compare("yahoo", Qt::CaseInsensitive) != 0
+            && domainPart.left(10).compare("rediffmail", Qt::CaseInsensitive) != 0)
         return false;
 
     if (domainParts.size() < 2 || domainPart.right(4).compare(".com", Qt::CaseInsensitive) != 0 && domainPart.right(3).compare(".in", Qt::CaseInsensitive) != 0)

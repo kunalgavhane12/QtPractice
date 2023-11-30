@@ -26,23 +26,10 @@
     <string>Account</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_deposits">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>40</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Deposits</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_transfer">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>110</x>
      <y>40</y>
      <width>75</width>
      <height>23</height>
@@ -52,24 +39,11 @@
     <string>Transfer</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_withdrawal">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>40</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>WithdDrawal</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_balance">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>70</y>
+     <x>200</x>
+     <y>40</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -81,8 +55,8 @@
   <widget class="QPushButton" name="pushButton_Logout">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>70</y>
+     <x>290</x>
+     <y>40</y>
      <width>75</width>
      <height>23</height>
     </rect>
