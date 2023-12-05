@@ -18,7 +18,6 @@ unix {
 
 HEADERS += \
     sqlite3.h \
-    sqlite3ext.h
 
 SOURCES += \
     sqlite3.c

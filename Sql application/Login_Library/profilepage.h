@@ -2,6 +2,7 @@
 #define PROFILEPAGE_H
 
 #include <QDialog>
+#include "loginlib.h"
 
 namespace Ui {
 class profilePage;

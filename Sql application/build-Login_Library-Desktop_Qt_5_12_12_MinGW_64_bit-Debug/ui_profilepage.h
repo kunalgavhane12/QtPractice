@@ -12,8 +12,9 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTableView>
 
 QT_BEGIN_NAMESPACE
 
@@ -24,9 +25,8 @@ public:
     QPushButton *pushButton_Transfer;
     QPushButton *pushButton_Balance;
     QPushButton *pushButton_Logout;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
     QPushButton *pushButton_Deposit;
+    QTableView *tableView;
 
     void setupUi(QDialog *profilePage)
     {
@@ -45,16 +45,12 @@ public:
         pushButton_Logout = new QPushButton(profilePage);
         pushButton_Logout->setObjectName(QString::fromUtf8("pushButton_Logout"));
         pushButton_Logout->setGeometry(QRect(300, 10, 75, 23));
-        lineEdit = new QLineEdit(profilePage);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(40, 110, 321, 31));
-        lineEdit->setReadOnly(true);
-        lineEdit_2 = new QLineEdit(profilePage);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(40, 150, 321, 31));
         pushButton_Deposit = new QPushButton(profilePage);
         pushButton_Deposit->setObjectName(QString::fromUtf8("pushButton_Deposit"));
         pushButton_Deposit->setGeometry(QRect(120, 60, 75, 23));
+        tableView = new QTableView(profilePage);
+        tableView->setObjectName(QString::fromUtf8("tableView"));
+        tableView->setGeometry(QRect(30, 90, 341, 192));
 
         retranslateUi(profilePage);
 

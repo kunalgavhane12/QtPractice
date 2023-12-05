@@ -50,7 +50,7 @@ void LoginApp::on_Login_clicked()
     QSqlQuery qry;
 
     //finding
-    qry.prepare("select * from USER_PASS where Username ='"+username+"' and Password='"+password+"'");
+    qry.prepare("select * from bankaccount where Username ='"+username+"' and Password='"+password+"'");
 
     if(qry.exec())
     {

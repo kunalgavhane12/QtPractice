@@ -11,11 +11,15 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -29,7 +33,7 @@ public:
     QPushButton *pushButton_load;
     QPushButton *pushButton_update;
     QPushButton *pushButton_delete;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *label_name;
@@ -40,9 +44,18 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_email;
     QLineEdit *lineEdit_email;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *label_balance;
+    QLineEdit *lineEdit_balance;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_username;
+    QLineEdit *lineEdit_username;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_password;
     QLineEdit *lineEdit_password;
+    QTableView *tableView;
+    QListView *listView;
+    QComboBox *comboBox;
 
     void setupUi(QDialog *ProfilePage)
     {
@@ -57,27 +70,27 @@ public:
         label_Profilepage_Status->setGeometry(QRect(10, 240, 201, 31));
         pushButton_load = new QPushButton(ProfilePage);
         pushButton_load->setObjectName(QString::fromUtf8("pushButton_load"));
-        pushButton_load->setGeometry(QRect(380, 280, 75, 23));
+        pushButton_load->setGeometry(QRect(390, 270, 75, 23));
         pushButton_update = new QPushButton(ProfilePage);
         pushButton_update->setObjectName(QString::fromUtf8("pushButton_update"));
         pushButton_update->setGeometry(QRect(100, 200, 75, 23));
         pushButton_delete = new QPushButton(ProfilePage);
         pushButton_delete->setObjectName(QString::fromUtf8("pushButton_delete"));
         pushButton_delete->setGeometry(QRect(190, 200, 75, 23));
-        widget = new QWidget(ProfilePage);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 50, 211, 131));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(ProfilePage);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 20, 251, 164));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        label_name = new QLabel(widget);
+        label_name = new QLabel(layoutWidget);
         label_name->setObjectName(QString::fromUtf8("label_name"));
 
         horizontalLayout->addWidget(label_name);
 
-        lineEdit_name = new QLineEdit(widget);
+        lineEdit_name = new QLineEdit(layoutWidget);
         lineEdit_name->setObjectName(QString::fromUtf8("lineEdit_name"));
 
         horizontalLayout->addWidget(lineEdit_name);
@@ -87,12 +100,12 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label_surname = new QLabel(widget);
+        label_surname = new QLabel(layoutWidget);
         label_surname->setObjectName(QString::fromUtf8("label_surname"));
 
         horizontalLayout_2->addWidget(label_surname);
 
-        lineEdit_surname = new QLineEdit(widget);
+        lineEdit_surname = new QLineEdit(layoutWidget);
         lineEdit_surname->setObjectName(QString::fromUtf8("lineEdit_surname"));
 
         horizontalLayout_2->addWidget(lineEdit_surname);
@@ -102,12 +115,12 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        label_email = new QLabel(widget);
+        label_email = new QLabel(layoutWidget);
         label_email->setObjectName(QString::fromUtf8("label_email"));
 
         horizontalLayout_3->addWidget(label_email);
 
-        lineEdit_email = new QLineEdit(widget);
+        lineEdit_email = new QLineEdit(layoutWidget);
         lineEdit_email->setObjectName(QString::fromUtf8("lineEdit_email"));
 
         horizontalLayout_3->addWidget(lineEdit_email);
@@ -115,14 +128,44 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        label_balance = new QLabel(layoutWidget);
+        label_balance->setObjectName(QString::fromUtf8("label_balance"));
+
+        horizontalLayout_5->addWidget(label_balance);
+
+        lineEdit_balance = new QLineEdit(layoutWidget);
+        lineEdit_balance->setObjectName(QString::fromUtf8("lineEdit_balance"));
+
+        horizontalLayout_5->addWidget(lineEdit_balance);
+
+
+        verticalLayout->addLayout(horizontalLayout_5);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        label_username = new QLabel(layoutWidget);
+        label_username->setObjectName(QString::fromUtf8("label_username"));
+
+        horizontalLayout_6->addWidget(label_username);
+
+        lineEdit_username = new QLineEdit(layoutWidget);
+        lineEdit_username->setObjectName(QString::fromUtf8("lineEdit_username"));
+
+        horizontalLayout_6->addWidget(lineEdit_username);
+
+
+        verticalLayout->addLayout(horizontalLayout_6);
+
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        label_password = new QLabel(widget);
+        label_password = new QLabel(layoutWidget);
         label_password->setObjectName(QString::fromUtf8("label_password"));
 
         horizontalLayout_4->addWidget(label_password);
 
-        lineEdit_password = new QLineEdit(widget);
+        lineEdit_password = new QLineEdit(layoutWidget);
         lineEdit_password->setObjectName(QString::fromUtf8("lineEdit_password"));
 
         horizontalLayout_4->addWidget(lineEdit_password);
@@ -130,6 +173,15 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_4);
 
+        tableView = new QTableView(ProfilePage);
+        tableView->setObjectName(QString::fromUtf8("tableView"));
+        tableView->setGeometry(QRect(440, 40, 181, 211));
+        listView = new QListView(ProfilePage);
+        listView->setObjectName(QString::fromUtf8("listView"));
+        listView->setGeometry(QRect(280, 40, 141, 211));
+        comboBox = new QComboBox(ProfilePage);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setGeometry(QRect(330, 300, 171, 41));
 
         retranslateUi(ProfilePage);
 
@@ -145,9 +197,17 @@ public:
         pushButton_update->setText(QApplication::translate("ProfilePage", "Update", nullptr));
         pushButton_delete->setText(QApplication::translate("ProfilePage", "Delete", nullptr));
         label_name->setText(QApplication::translate("ProfilePage", "Name", nullptr));
+        lineEdit_name->setPlaceholderText(QApplication::translate("ProfilePage", "Name", nullptr));
         label_surname->setText(QApplication::translate("ProfilePage", "Surname", nullptr));
+        lineEdit_surname->setPlaceholderText(QApplication::translate("ProfilePage", "Surname", nullptr));
         label_email->setText(QApplication::translate("ProfilePage", "Email Id", nullptr));
+        lineEdit_email->setPlaceholderText(QApplication::translate("ProfilePage", "Email", nullptr));
+        label_balance->setText(QApplication::translate("ProfilePage", "Balance", nullptr));
+        lineEdit_balance->setPlaceholderText(QApplication::translate("ProfilePage", "0.0", nullptr));
+        label_username->setText(QApplication::translate("ProfilePage", "Username", nullptr));
+        lineEdit_username->setPlaceholderText(QApplication::translate("ProfilePage", "Email", nullptr));
         label_password->setText(QApplication::translate("ProfilePage", "PassWord", nullptr));
+        lineEdit_password->setPlaceholderText(QApplication::translate("ProfilePage", "Password", nullptr));
     } // retranslateUi
 
 };

@@ -8,8 +8,11 @@ int main(int argc, char *argv[])
 
    QFile file_DB("D:/qt practice program/QtPractice/FileRead/user_credential.txt");
 
-    if(file_DB.open(QIODevice::ReadWrite |QIODevice::Unbuffered | QIODevice::Text))
+
+    if(file_DB.open(QIODevice::ReadOnly |QIODevice::WriteOnly | QIODevice::Text))
     {
+        file_DB.setPermissions(QFile::ReadOwner | QFile::WriteOwner);
+
 
         QTextStream in(&file_DB);
 

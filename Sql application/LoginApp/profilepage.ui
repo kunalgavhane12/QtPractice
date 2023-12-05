@@ -42,8 +42,8 @@
   <widget class="QPushButton" name="pushButton_load">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>280</y>
+     <x>390</x>
+     <y>270</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -78,13 +78,13 @@
     <string>Delete</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>50</y>
-     <width>211</width>
-     <height>131</height>
+     <y>20</y>
+     <width>251</width>
+     <height>164</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -98,7 +98,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_name"/>
+       <widget class="QLineEdit" name="lineEdit_name">
+        <property name="placeholderText">
+         <string>Name</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -112,7 +116,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_surname"/>
+       <widget class="QLineEdit" name="lineEdit_surname">
+        <property name="placeholderText">
+         <string>Surname</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -126,7 +134,47 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_email"/>
+       <widget class="QLineEdit" name="lineEdit_email">
+        <property name="placeholderText">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLabel" name="label_balance">
+        <property name="text">
+         <string>Balance</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_balance">
+        <property name="placeholderText">
+         <string>0.0</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QLabel" name="label_username">
+        <property name="text">
+         <string>Username</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_username">
+        <property name="placeholderText">
+         <string>Email</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -140,11 +188,45 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_password"/>
+       <widget class="QLineEdit" name="lineEdit_password">
+        <property name="placeholderText">
+         <string>Password</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
    </layout>
+  </widget>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>40</y>
+     <width>181</width>
+     <height>211</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QListView" name="listView">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>40</y>
+     <width>141</width>
+     <height>211</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>300</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>

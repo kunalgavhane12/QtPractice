@@ -224,6 +224,7 @@ Makefile: ../Login_Library/Login_Library.pro ../../../../QT/5.12.12/mingw73_64/m
 		../../../../QT/5.12.12/mingw73_64/mkspecs/features/qt_config.prf \
 		../../../../QT/5.12.12/mingw73_64/mkspecs/win32-g++/qmake.conf \
 		../../../../QT/5.12.12/mingw73_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../QT/5.12.12/mingw73_64/mkspecs/features/exclusive_builds.prf \
 		../../../../QT/5.12.12/mingw73_64/mkspecs/features/toolchain.prf \
 		../../../../QT/5.12.12/mingw73_64/mkspecs/features/default_pre.prf \
@@ -249,6 +250,7 @@ Makefile: ../Login_Library/Login_Library.pro ../../../../QT/5.12.12/mingw73_64/m
 		../Login_Library/Login_Library.pro \
 		../../../../QT/5.12.12/mingw73_64/lib/Qt5Widgets.prl \
 		../../../../QT/5.12.12/mingw73_64/lib/Qt5Gui.prl \
+		../../../../QT/5.12.12/mingw73_64/lib/Qt5Sql.prl \
 		../../../../QT/5.12.12/mingw73_64/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile ..\Login_Library\Login_Library.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../../QT/5.12.12/mingw73_64/mkspecs/features/spec_pre.prf:
@@ -412,6 +414,7 @@ Makefile: ../Login_Library/Login_Library.pro ../../../../QT/5.12.12/mingw73_64/m
 ../../../../QT/5.12.12/mingw73_64/mkspecs/features/qt_config.prf:
 ../../../../QT/5.12.12/mingw73_64/mkspecs/win32-g++/qmake.conf:
 ../../../../QT/5.12.12/mingw73_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../QT/5.12.12/mingw73_64/mkspecs/features/exclusive_builds.prf:
 ../../../../QT/5.12.12/mingw73_64/mkspecs/features/toolchain.prf:
 ../../../../QT/5.12.12/mingw73_64/mkspecs/features/default_pre.prf:
@@ -437,6 +440,7 @@ Makefile: ../Login_Library/Login_Library.pro ../../../../QT/5.12.12/mingw73_64/m
 ../Login_Library/Login_Library.pro:
 ../../../../QT/5.12.12/mingw73_64/lib/Qt5Widgets.prl:
 ../../../../QT/5.12.12/mingw73_64/lib/Qt5Gui.prl:
+../../../../QT/5.12.12/mingw73_64/lib/Qt5Sql.prl:
 ../../../../QT/5.12.12/mingw73_64/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\Login_Library\Login_Library.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

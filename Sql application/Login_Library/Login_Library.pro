@@ -1,4 +1,4 @@
-QT += widgets
+QT += widgets sql
 
 LIBS += 'D:\qt practice program\QtPractice\Sql application\Login_Library\libsqllite3.a'
 
@@ -12,13 +12,11 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    loginpage.cpp \
-    main.cpp \
-    profilepage.cpp
+    loginlib.cpp \
+    main.cpp
 
 HEADERS += \
-    loginpage.h \
-    profilepage.h \
+    loginlib.h \
     sqlite3.h
 
 # Default rules for deployment.
@@ -27,6 +25,4 @@ unix {
 }
 !isEmpty(target.path): INSTALLS += target
 
-FORMS += \
-    loginpage.ui \
-    profilepage.ui
+FORMS +=
