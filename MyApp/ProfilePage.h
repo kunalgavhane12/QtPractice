@@ -15,6 +15,11 @@ public:
     explicit ProfilePage(QWidget *parent = nullptr);
     ~ProfilePage();
 
+    void setUp();
+
+private slots:
+    void on_btn_Logout_clicked();
+
 private:
     Ui::ProfilePage *ui;
 };

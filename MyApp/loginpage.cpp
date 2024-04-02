@@ -3,7 +3,8 @@
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
 
-int LoginPage::Count = 0;
+QString LoginPage::username=" ";
+QString LoginPage::password = "";
 
 LoginPage::LoginPage(QWidget *parent)
     : QMainWindow(parent)
@@ -79,10 +80,59 @@ void LoginPage::on_btnLogin_clicked()
         return;
     }
 
+    if(USE_DB)
+    {
+        //finding
+        QSqlQuery qry;
 
-    hide();
-    profilePage = new ProfilePage(this);
-    profilePage->show();
+        qry.prepare("select Username,Password from BankAccountDetails where Username ='"+username+"' and Password='"+password+"'");
+
+        if(qry.exec())
+        {
+            int count=0;
+
+            while(qry.next())
+            {
+                count++;
+            }
+            if(count == 1)
+            {
+                ui->label_Status->setText("username and password is correct");
+                QMessageBox::information(this, "Login", "Login Sucess");
+
+                hide();
+                profilePage = new ProfilePage(this);
+                profilePage->show();
+            }
+            if(count < 1)
+            {
+                ui->label_Status->setText("username and password is not correct");
+                QMessageBox::warning(this, "Login", "Invalid username or password");
+                ui->lineEdit_Username->clear();
+                ui->lineEdit_Password->clear();
+            }
+        }
+    }
+
+    if(USE_File)
+    {
+        if(authenticate(username,password))
+        {
+            QMessageBox::information(this, "Login", "Login Success");
+
+            hide();
+            profilePage = new ProfilePage(this);
+            profilePage->show();
+        }
+        else
+        {
+            QMessageBox::warning(this, "Login", "Invalid username or password");
+            ui->lineEdit_Username->clear();
+            ui->lineEdit_Password->clear();
+        }
+
+    }
+
 }
 
 
@@ -99,68 +149,34 @@ void LoginPage::on_btnSignUp_clicked()
     createAccount->show();
 }
 
-void LoginPage::loadAccountNumberFromDatabase()
+bool LoginPage::authenticate(const QString &, const QString &)
 {
-    QSqlQuery query;
-    if (query.exec("SELECT * FROM Count_Table LIMIT 1"))
+
+    QFile file;
+    file.setFileName("D:/QtPractice/MyApp/user_credential.txt");
+
+    if(!file.open(QFile::ReadOnly | QFile::Text))
     {
-        if (query.next())
+        QMessageBox::information(this, "Login", "File not open");
+        return false;
+    }
+
+
+    QTextStream in(&file);
+
+    while(!in.atEnd())
+    {
+        QString line = in.readLine();
+        QStringList parts = line.split(",");
+
+        if (parts.size() >= 6 && parts[4] == username && parts[5] == password)
         {
-            Count = query.value(0).toInt();
+            fileClose();
+            return true;
         }
-
     }
-    else
-    {
-        qDebug() << "Error loading 'Count' from the databases: " << query.lastError().text();
-    }
-}
 
-void LoginPage::saveAccountNumberToDatabase()
-{
-    QSqlQuery qry;
-
-    qry.prepare("update Count_Table set Count='"+QString::number(Count)+"' where Count=Count");
-
-    if (qry.exec())
-    {
-        qDebug() << "Count Updated in the database.";
-    }
-    else
-    {
-        qDebug() << "Error updating 'Count' in the database: " << qry.lastError().text();
-    }
+    fileClose();
+    return false;
 
 }
-
-void LoginPage::saveAccountNumberToFile()
-{
-    QFile countFile("D:/QtPractice/MyApp/count.txt");
-
-    if (!countFile.open(QFile::WriteOnly | QFile::Text))
-    {
-        qDebug() << "File not open";
-        return;
-    }
-
-    QTextStream out(&countFile);
-    out << Count;
-    countFile.close();
-}
-
-void LoginPage::loadAccountNumberFromFile()
-{
-    QFile countFile("D:/QtPractice/MyApp/count.txt");
-    if (!countFile.open(QFile::ReadOnly | QFile::Text))
-    {
-        qDebug() << "File not open";
-        return;
-    }
-
-    QTextStream in(&countFile);
-    QString line = in.readLine();
-    Count = line.toInt();
-    countFile.close();
-
-}
-

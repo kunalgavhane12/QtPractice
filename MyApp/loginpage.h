@@ -20,6 +20,9 @@ class LoginPage : public QMainWindow
 public:
     LoginPage(QWidget *parent = nullptr);
     ~LoginPage();
+
+    static QString username, password;
+
     bool USE_DB = true;
     bool USE_File = false;
 
@@ -45,7 +48,6 @@ public:
         else
         {
             qDebug() << "Connected..";
-            loadAccountNumberFromDatabase();
             return true;
         }
     }
@@ -71,8 +73,6 @@ public:
         }
     }
 
-
-
 private slots:
 
     void on_btnLogin_clicked();
@@ -81,20 +81,12 @@ private slots:
 
     void on_btnSignUp_clicked();
 
-    void loadAccountNumberFromDatabase();
-
-    void saveAccountNumberToDatabase();
-
-    void saveAccountNumberToFile();
-
-    void loadAccountNumberFromFile();
+    bool authenticate(const QString&, const QString&);
 
 
 private:
     Ui::LoginPage *ui;
     ProfilePage *profilePage;
-    static int Count;
-    QString username, password;
 
 };
 #endif // LOGINPAGE_H
