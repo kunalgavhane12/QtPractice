@@ -38,7 +38,6 @@ private:
     Ui::CreateAccount *ui;
     QString username, password, name, email, deposit;
     static int Count;
-
 };
 
 #endif // CREATEACCOUNT_H

@@ -16,12 +16,17 @@ public:
     ~ProfilePage();
 
     void setUp();
+    void allclear();
 
 private slots:
     void on_btn_Logout_clicked();
 
+    void on_pushButton_TransferAmount_clicked();
+
 private:
     Ui::ProfilePage *ui;
+    int accountNumber;
+    QString name, email, balance;
 };
 
 #endif // PROFILEPAGE_H
