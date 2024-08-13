@@ -5,9 +5,14 @@
 
 Sec::Sec(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Sec)
+    ui(new Ui::Sec),timeoutDuration(5000)
 {
     ui->setupUi(this);
+    inactivityTimer = new QTimer(this);
+    inactivityTimer->setInterval(timeoutDuration);
+    connect(inactivityTimer,&QTimer::timeout,this,&Sec::onTimeout);
+    installEventFilter(this);
+    inactivityTimer->start();
 }
 
 Sec::~Sec()
@@ -52,6 +57,12 @@ void Sec::on_btnCritical_clicked()
 {
     qDebug() << "Critical";
     QMessageBox::critical(this,"Critical", "Do you want to continue",QMessageBox::Yes|QMessageBox::No);
+
+}
+
+void Sec::onTimeout()
+{
+    close();
 
 }
 
